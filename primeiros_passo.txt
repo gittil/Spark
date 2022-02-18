@@ -1,0 +1,62 @@
+# Instalando o Ubuntu
+
+Baixar imagem direto no site da cannonical e proceder com a instalaçao em uma VM.
+Apos finalizar a instalaçao, execute os comandos no terminal para atualizar os pacotes:
+
+sudo apt update
+
+sudo apt -y upgrade
+
+
+# Instalando o JAVA
+
+Apos os pacotes atualizados, proceder com a atualizaçao do JAVA
+
+sudo apt install curl mlocate default-jdk -y
+
+
+# Instalando o Spark
+
+Entrar no site http://spark.apache.org/download
+
+escolher a ultima versão do Spark, clicar no link do download e copiar o link do mirror
+
+no terminal:
+
+#comando wget faz o download do arquivo
+wget <LINK>
+
+#comando tar descompacta o arquivo
+tar xvf spark (apos digitar spark clique na tecla tab para o auto preenchimento com o nome do arquivo)
+
+#comando mv vai mover o arquivo descompactado para a pasta correta, mesma coisa com a tecla tab
+sudo mv spark.../ /opt/spark
+
+
+#editar o bashrc para configurar as variaveis de ambientes
+
+sudo gedit ~/.bashrc 
+
+#navegar até o final do arquivo e dê alguns ENTERs
+
+export SPARK_HOME=/opt/spark
+
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
+#no terminal: 
+
+source~/.bashrc 
+
+# Iniciando um nó master stand alone: 
+
+start-master.sh
+
+no navegador digitar http://localhost:8080 para verificar se spark já está rodando
+
+inicializar working process: 
+
+/opt/spark/sbin/start-worker.sh spark://localhost:7077
+
+#acessar o spark atráves do shell: 
+
+pyspark
