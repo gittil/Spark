@@ -1,6 +1,6 @@
 # Spark
 
-- Utiliza o Metasote do Hive
+- Utiliza o Metastore do Hive
 - Não é preciso ter o Hive instalado para usar o Spark
 
 ### Tabela
